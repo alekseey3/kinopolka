@@ -86,7 +86,9 @@
 
 Пример (пароль поставь свой):
 
-```properties
+Пример (пароль поставь свой):
+
+<pre><code>
 spring.datasource.url=jdbc:postgresql://localhost:5432/kinopolka
 spring.datasource.username=postgres
 spring.datasource.password=YOUR_PASSWORD
@@ -94,25 +96,26 @@ spring.datasource.password=YOUR_PASSWORD
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.thymeleaf.cache=false
+</code></pre>
 
 ---
 
 ## Интерфейс приложения
 
-**Главная страница**
-![Главная](screenshots/home.jpg)
+<b>Главная страница</b><br>
+<img src="screenshots/home.jpg" alt="Главная" width="900"><br><br>
 
-**Фильмы**
-![Фильмы](screenshots/films.jpg)
+<b>Фильмы</b><br>
+<img src="screenshots/films.jpg" alt="Фильмы" width="900"><br><br>
 
-**Режиссёры**
-![Режиссёры](screenshots/directors.jpg)
+<b>Режиссёры</b><br>
+<img src="screenshots/directors.jpg" alt="Режиссёры" width="900"><br><br>
 
-**Добавление режиссёра**
-![Добавление режиссёра](screenshots/add-director.jpg)
+<b>Добавление режиссёра</b><br>
+<img src="screenshots/add-director.jpg" alt="Добавление режиссёра" width="900"><br><br>
 
-**Добавление фильма**
-![Добавление фильма](screenshots/add-film.jpg)
+<b>Добавление фильма</b><br>
+<img src="screenshots/add-film.jpg" alt="Добавление фильма" width="900"><br><br>
 
-**Фильмография (профиль режиссёра)**
-![Фильмография](screenshots/filmography.jpg)
+<b>Фильмография (профиль режиссёра)</b><br>
+<img src="screenshots/filmography.jpg" alt="Фильмография" width="900"><br><br>
