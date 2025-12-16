@@ -94,3 +94,25 @@ spring.datasource.password=YOUR_PASSWORD
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.thymeleaf.cache=false
+
+---
+
+## Интерфейс приложения
+
+**Главная страница**
+![Главная](screenshots/home.jpg)
+
+**Фильмы**
+![Фильмы](screenshots/films.jpg)
+
+**Режиссёры**
+![Режиссёры](screenshots/directors.jpg)
+
+**Добавление режиссёра**
+![Добавление режиссёра](screenshots/add-director.jpg)
+
+**Добавление фильма**
+![Добавление фильма](screenshots/add-film.jpg)
+
+**Фильмография (профиль режиссёра)**
+![Фильмография](screenshots/filmography.jpg)
