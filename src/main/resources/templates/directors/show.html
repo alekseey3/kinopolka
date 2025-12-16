@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Профиль режиссёра')}"></head>
+
+<body>
+<div th:replace="~{fragments/layout :: header('directors')}"></div>
+
+<div class="container py-4">
+    <div class="d-flex align-items-start justify-content-between flex-wrap gap-2">
+        <div>
+            <h2 class="fw-bold mb-1" th:text="${director.fullName}">Director</h2>
+            <div class="text-muted">
+                <span th:text="${director.country}">Country</span>
+                <span th:if="${director.birthYear != null}" th:text="${' • ' + director.birthYear}"></span>
+            </div>
+        </div>
+
+        <div class="d-flex gap-2">
+            <a class="btn btn-outline-light" th:href="@{'/directors/' + ${director.id} + '/edit'}">Редактировать</a>
+            <a class="btn btn-warning fw-semibold" href="/films/new">+ Добавить фильм</a>
+        </div>
+    </div>
+
+    <hr class="border-secondary border-opacity-25">
+
+    <h5 class="fw-bold mb-3">Фильмография</h5>
+
+    <div class="row g-3">
+        <div class="col-md-6 col-lg-4" th:each="f : ${films}">
+            <div class="card rounded-4 h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                        <h6 class="card-title fw-bold mb-1" th:text="${f.title}">Title</h6>
+
+                        <span class="badge badge-hit"
+                              th:if="${f.rating != null and f.rating.doubleValue() >= 8.0}">Хит</span>
+                    </div>
+
+                    <div class="text-muted small mb-2">
+                        <span th:text="${f.releaseYear}">Year</span>
+                        <span th:if="${f.durationMin != null}" th:text="${' • ' + f.durationMin + ' мин'}"></span>
+                    </div>
+
+                    <div class="d-flex gap-2 flex-wrap mb-2">
+            <span class="badge badge-soft" th:if="${f.rating != null}"
+                  th:text="${'Рейтинг: ' + f.rating}">Рейтинг</span>
+                    </div>
+
+                    <p class="text-muted small mb-3"
+                       th:if="${f.description != null and !#strings.isEmpty(f.description)}"
+                       th:text="${f.description}"></p>
+
+                    <div class="d-flex gap-2">
+                        <a class="btn btn-outline-light btn-sm" th:href="@{'/films/' + ${f.id} + '/edit'}">Редактировать</a>
+                        <form th:action="@{'/films/' + ${f.id} + '/delete'}" method="post">
+                            <button class="btn btn-outline-danger btn-sm" type="submit">Удалить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12" th:if="${#lists.isEmpty(films)}">
+            <div class="card rounded-4">
+                <div class="card-body text-muted">
+                    Пока нет фильмов. Добавь первый через кнопку “Добавить фильм”.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="~{fragments/layout :: footer}"></div>
+</body>
+</html>

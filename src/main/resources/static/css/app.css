@@ -1,0 +1,86 @@
+body { background: #0f1115; color: #eaeaea; }
+a { text-decoration: none; }
+.navbar { border-bottom: 1px solid rgba(255,255,255,.08); }
+
+.card { background: #151a22; border: 1px solid rgba(255,255,255,.08); }
+.card-title { color: #fff; }
+.text-muted { color: rgba(255,255,255,.6) !important; }
+
+.badge-hit { background: #f5c542; color: #101218; }
+.badge-soft { background: rgba(255,255,255,.08); color: #eaeaea; }
+
+.footer { border-top: 1px solid rgba(255,255,255,.08); color: rgba(255,255,255,.6); }
+
+/* Формы в тёмной теме — чтобы текст не сливался */
+.form-label {
+  color: rgba(255,255,255,.85);
+}
+
+.form-control,
+.form-select,
+textarea.form-control {
+  background-color: #0f1115;
+  color: #eaeaea;
+  border: 1px solid rgba(255,255,255,.18);
+}
+
+.form-control::placeholder {
+  color: rgba(255,255,255,.45);
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea.form-control:focus {
+  background-color: #0f1115;
+  color: #ffffff;
+  border-color: #f5c542;
+  box-shadow: 0 0 0 .25rem rgba(245,197,66,.15);
+}
+
+/* =========================
+   Стопка постеров на главной
+   ========================= */
+.poster-stack {
+  position: relative;
+  height: 420px; /* было 340 */
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.poster-stack .poster {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 18px 50px rgba(0,0,0,.55);
+}
+
+.poster-stack .poster--back-left {
+  transform: translateX(-50%) rotate(-10deg) translateX(-120px) translateY(35px);
+  opacity: 0.85;
+}
+
+.poster-stack .poster--back-right {
+  transform: translateX(-50%) rotate(10deg) translateX(120px) translateY(35px);
+  opacity: 0.85;
+}
+
+.poster-stack .poster--front {
+  transform: translateX(-50%) translateY(-5px);
+  z-index: 2;
+}
+
+/* Адаптив */
+@media (max-width: 576px) {
+  .poster-stack { height: 330px; } /* было 280 */
+  .poster-stack .poster { width: 210px; }
+  .poster-stack .poster--back-left {
+    transform: translateX(-50%) rotate(-10deg) translateX(-90px) translateY(30px);
+  }
+  .poster-stack .poster--back-right {
+    transform: translateX(-50%) rotate(10deg) translateX(90px) translateY(30px);
+  }
+}

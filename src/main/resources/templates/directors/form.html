@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Режиссёр — КиноПолка')}"></head>
+
+<body>
+<div th:replace="~{fragments/layout :: header('directors')}"></div>
+
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+        <h2 class="fw-bold mb-0"
+            th:text="${director.id == null ? 'Добавить режиссёра' : 'Редактировать режиссёра'}"></h2>
+        <a class="btn btn-outline-light" href="/directors">Назад к списку</a>
+    </div>
+
+    <div class="card rounded-4">
+        <div class="card-body">
+            <form th:action="${director.id == null} ? @{/directors} : @{'/directors/' + ${director.id}}"
+                  th:object="${director}" method="post" class="row g-3">
+
+                <div class="col-12">
+                    <label class="form-label">ФИО</label>
+                    <input class="form-control" type="text" th:field="*{fullName}">
+                    <div class="text-danger small mt-1" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></div>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Страна</label>
+                    <input class="form-control" type="text" th:field="*{country}">
+                    <div class="text-danger small mt-1" th:if="${#fields.hasErrors('country')}" th:errors="*{country}"></div>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Год рождения</label>
+                    <input class="form-control" type="number" th:field="*{birthYear}">
+                    <div class="text-danger small mt-1" th:if="${#fields.hasErrors('birthYear')}" th:errors="*{birthYear}"></div>
+                </div>
+
+                <div class="col-12 d-flex gap-2">
+                    <button class="btn btn-warning fw-semibold" type="submit">Сохранить</button>
+                    <a class="btn btn-outline-light" href="/directors">Отмена</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div th:replace="~{fragments/layout :: footer}"></div>
+</body>
+</html>

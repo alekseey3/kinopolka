@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('КиноПолка — Режиссёры и хиты')}"></head>
+
+<body>
+<div th:replace="~{fragments/layout :: header('home')}"></div>
+
+<div class="page-wrap">
+
+    <!-- Верхний блок (не меняем идею) -->
+    <div class="container py-5">
+        <div class="p-4 p-md-5 rounded-4"
+             style="background: linear-gradient(135deg, rgba(245,197,66,.18), rgba(255,255,255,.06));
+                border:1px solid rgba(255,255,255,.08);">
+            <h1 class="display-6 fw-bold">КиноПолка</h1>
+            <p class="text-muted mb-4">
+                Витрина режиссёров и их самых успешных фильмов. Добавляй режиссёров, пополняй фильмографию, отмечай хиты по рейтингу.
+            </p>
+
+            <div class="d-flex gap-2 flex-wrap">
+                <a class="btn btn-warning fw-semibold" href="/directors">Смотреть режиссёров</a>
+                <a class="btn btn-outline-light" href="/films">Смотреть фильмы</a>
+                <a class="btn btn-outline-light" href="/directors/new">+ Добавить режиссёра</a>
+                <a class="btn btn-outline-light" href="/films/new">+ Добавить фильм</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3 картинки (одна впереди, две сзади) -->
+    <div class="container pb-4 mb-5">
+        <div class="poster-stack">
+            <img class="poster poster--back-left"
+                 th:src="@{/images/film2.webp}" alt="film2">
+            <img class="poster poster--back-right"
+                 th:src="@{/images/film3.webp}" alt="film3">
+            <img class="poster poster--front"
+                 th:src="@{/images/film1.webp}" alt="film1">
+        </div>
+    </div>
+
+    <!-- Два блока -->
+    <div class="container pb-5">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="card rounded-4 h-100">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Идея сайта</h5>
+                        <p class="text-muted mb-0">
+                            Основной фокус — на режиссёрах: их профили + фильмография, а “успешные” фильмы выделяются бейджем
+                            <span class="badge badge-hit">Хит</span>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card rounded-4 h-100">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Как определить “успешный” фильм</h5>
+                        <p class="text-muted mb-0">
+                            По рейтингу: если рейтинг ≥ 8.0 — показываем “Хит”.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div th:replace="~{fragments/layout :: footer}"></div>
+</body>
+</html>
